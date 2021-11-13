@@ -25,19 +25,17 @@ io.on('connection', (socket) => {
 ExpressPeerServer(http, { path: '/' });
 
 // implement routes
-app.use('/api', routes('./routes/authRouter'));
-app.use('/api', routes('./routes/userRouter'));
-app.use('/api', routes('./routes/postRouter'));
-app.use('/api', routes('./routes/commentRouter'));
-app.use('/api', routes('./routes/notifyRouter'));
-app.use('/api', routes('./routes/messageRouter'));
+app.use('/api', require('./routes/authRouter'));
+app.use('/api', require('./routes/userRouter'));
+app.use('/api', require('./routes/postRouter'));
+app.use('/api', require('./routes/commentRouter'));
+app.use('/api', require('./routes/notifyRouter'));
+app.use('/api', require('./routes/messageRouter'));
 
 const URI = process.env.MONGODB_URL;
 mongoose.connect(
   URI,
   {
-    useCreateIndex: true,
-    useFindAndModify: false,
     useNewUrlParser: true,
     useUnifiedTopology: true,
   },

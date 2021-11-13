@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const { ObjectId, String } = mongoose.Types;
+const { ObjectId, String } = mongoose.Schema.Types;
 const messageSchema = new mongoose.Schema(
   {
     conversation: { type: ObjectId, ref: 'Conversation' },
